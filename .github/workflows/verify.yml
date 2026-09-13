@@ -1,0 +1,27 @@
+name: Verify starter kit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  bootstrap-windows:
+    name: Bootstrap on Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify PowerShell bootstrap
+        shell: pwsh
+        run: ./tests/bootstrap.ps1
+
+  bootstrap-ubuntu:
+    name: Bootstrap on Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify shell bootstrap
+        run: sh ./tests/bootstrap.sh

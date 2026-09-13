@@ -2,6 +2,9 @@
 
 > A privacy-first, file-based starter kit for organizing local Codex work.
 
+[![Verify](https://github.com/Lai-Sheng/codex-project-control-center/actions/workflows/verify.yml/badge.svg)](https://github.com/Lai-Sheng/codex-project-control-center/actions/workflows/verify.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Codex Project Control Center gives you one small place to route active projects without turning every chat, note, or status update into permanent context. Each project keeps its own source of truth; the control center only records stable routing information.
 
 ## What you get
@@ -38,6 +41,23 @@ The scripts copy only the neutral `templates/control-center` files. They refuse 
 
 ## The model
 
+```mermaid
+flowchart TB
+    CC[Control center]
+    Registry[PROJECTS.md<br/>thin project registry]
+    Rules[ARCHITECTURE.md + AGENTS.md<br/>stable operating rules]
+    ProjectA[Project A<br/>code · specs · data]
+    ProjectB[Project B<br/>code · specs · data]
+    Current[Optional CURRENT.md<br/>short-lived project status]
+
+    CC --> Registry
+    CC --> Rules
+    Registry --> ProjectA
+    Registry --> ProjectB
+    ProjectA --> Current
+    ProjectB --> Current
+```
+
 ```text
 Control center
   ├── routes to active projects
@@ -65,13 +85,25 @@ docs/                 # Concepts and privacy guidance
 
 This project helps organize local Codex project context. It does not provide a cloud memory backend, retain chat transcripts, or manage secrets.
 
+## Quality bar
+
+The bootstrap flow is checked on Windows PowerShell and Ubuntu by GitHub Actions. Changes to the installer should keep both paths working and update their tests.
+
+## Roadmap
+
+- [x] Neutral control-center and project templates.
+- [x] Windows and POSIX-shell bootstrap scripts.
+- [x] Cross-platform CI for the bootstrap flow.
+- [ ] Optional guided project-creation command.
+- [ ] A fully fictional example control center for people who learn best by copying a complete example.
+
 ## Safety and privacy
 
 Do not commit credentials, personal paths, private data, or transient personal status. Read [the privacy guide](docs/privacy.md) before publishing a control center or project repository.
 
 ## Contributing
 
-Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), and [SECURITY.md](SECURITY.md).
 
 ## License
 
