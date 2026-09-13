@@ -7,6 +7,12 @@
 
 Codex Project Control Center gives you one small place to route active projects without turning every chat, note, or status update into permanent context. Each project keeps its own source of truth; the control center only records stable routing information.
 
+## The one idea
+
+> Projects do not need more memory. They need clear ownership.
+
+When every project has a distinct home for its code, specifications, and current state, a control center only has one job: make that home easy to find. It should never become a second, stale copy of the project.
+
 ## What you get
 
 - A neutral **control center** with a project registry and durable operating rules.
@@ -32,10 +38,14 @@ Clone this repository, then run the bootstrap script from its root.
 
 The scripts copy only the neutral `templates/control-center` files. They refuse to overwrite existing files unless you explicitly opt in with `-Force` (PowerShell) or `--force` (shell).
 
+## See it filled in first
+
+Empty templates are hard to picture. The [fictional creative studio example](examples/fictional-creative-studio/) shows a control center with two active projects, each owning its own README, instructions, and optional short-lived state. Read it first; copy from `templates/` when you are ready.
+
 ## First use
 
 1. Open the generated control-center folder in Codex.
-2. Replace the introductory notes in `PROJECTS.md` and `ARCHITECTURE.md` with decisions that fit your work.
+2. Follow the [20-minute getting-started guide](docs/getting-started.md).
 3. When a task deserves long-term ownership, create a separate project folder from `templates/project`.
 4. Register only its stable name, root, and lifecycle in `PROJECTS.md`.
 
@@ -85,6 +95,10 @@ docs/                 # Concepts and privacy guidance
 
 This project helps organize local Codex project context. It does not provide a cloud memory backend, retain chat transcripts, or manage secrets.
 
+## Is this for you?
+
+Use this if you have several long-lived local projects and want an agent to find the right project without loading the history of every other one. It is deliberately lightweight: if you only work in one repository at a time, a well-written project README may be all you need.
+
 ## Quality bar
 
 The bootstrap flow is checked on Windows PowerShell and Ubuntu by GitHub Actions. Changes to the installer should keep both paths working and update their tests.
@@ -94,8 +108,8 @@ The bootstrap flow is checked on Windows PowerShell and Ubuntu by GitHub Actions
 - [x] Neutral control-center and project templates.
 - [x] Windows and POSIX-shell bootstrap scripts.
 - [x] Cross-platform CI for the bootstrap flow.
+- [x] A fully fictional example control center for people who learn by copying a complete example.
 - [ ] Optional guided project-creation command.
-- [ ] A fully fictional example control center for people who learn best by copying a complete example.
 
 ## Safety and privacy
 
