@@ -1,5 +1,6 @@
 # Local Codex state
 CURRENT.md
+!examples/**/CURRENT.md
 
 # Secrets and environment files
 .env
