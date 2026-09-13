@@ -1,0 +1,11 @@
+# Local Codex state
+CURRENT.md
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
